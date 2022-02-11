@@ -55,7 +55,7 @@ class Products(models.Model):
 
 class Reviews(models.Model):
     product=models.ForeignKey(
-        Products, related_name='reviews', on_delete=CASCADE)
+        Products, related_name='reviews', on_delete=models.CASCADE)
 
     author=models.CharField(max_length=50)
     rating=models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])

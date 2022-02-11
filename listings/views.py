@@ -40,6 +40,8 @@ def products_detail(request, category_slug, product_slug):
             cf=review_form.cleaned_data
 
             author_name="Anonymous"
+            if request.user.is_authenticated and request.user.first_name!='':
+                author_name=request.user.first_name
 
             Reviews.objects.create(
                 product=product,
